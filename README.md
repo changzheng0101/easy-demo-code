@@ -6,3 +6,6 @@
 
 ## spring-config-demo
 > 这个示例主要完成了读取配置文件中的值
+
+## maven-profile
+> 测试一下maven中不同的profile有什么作用
