@@ -9,3 +9,6 @@
 
 ## maven-profile
 > 测试一下maven中不同的profile有什么作用
+
+## seleunim-demo
+> 网页自动化测试工作，网页不能访问，但是整体逻辑可以参考
