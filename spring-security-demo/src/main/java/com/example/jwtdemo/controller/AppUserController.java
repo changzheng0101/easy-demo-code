@@ -22,7 +22,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.io.IOException;
 import java.net.URI;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -56,8 +55,8 @@ public class AppUserController {
     }
 
     @PostMapping("/role/adduser")
-    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUSer roleToUSer) {
-        appUserService.addRoleToAppUser(roleToUSer.getUsername(), roleToUSer.getRoleName());
+    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUser roleToUser) {
+        appUserService.addRoleToAppUser(roleToUser.getUsername(), roleToUser.getRoleName());
         return ResponseEntity.ok().build();
     }
 
@@ -107,7 +106,7 @@ public class AppUserController {
 }
 
 @Data
-class RoleToUSer {
+class RoleToUser {
     private String username;
     private String roleName;
 }
