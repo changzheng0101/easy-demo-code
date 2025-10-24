@@ -12,3 +12,6 @@
 
 ## seleunim-demo
 > 网页自动化测试工作，网页不能访问，但是整体逻辑可以参考
+
+## spring security demo
+> spring security的简单使用,包含token签发，登录鉴权等常见流程
