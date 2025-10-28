@@ -1,6 +1,7 @@
 package com.weixiao;
 
 import com.weixiao.base.PropertyOverrideContextInitializer;
+import com.weixiao.service.HelloService;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -47,6 +47,7 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
             log.info("user found that has username --- {},password-- {}", username, user.getPassword());
         }
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         // todo change to get Roles
 //        user.getRoles().forEach(role -> {
 //            authorities.add(new SimpleGrantedAuthority(role.getName()));

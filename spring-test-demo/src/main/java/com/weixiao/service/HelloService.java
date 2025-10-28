@@ -1,4 +1,4 @@
-package com.weixiao;
+package com.weixiao.service;
 
 import org.springframework.stereotype.Service;
 

@@ -47,8 +47,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/login/**", "/api/refresh_token/**","/api/user/save/**").permitAll()
-                        .requestMatchers("/api/users/**").hasAnyAuthority("ROLE_USER")
+                        .requestMatchers("/api/login/**", "/api/refresh_token/**","/api/user/save/**","/api/users/**").permitAll()
+//                        .requestMatchers("/api/users/**").hasAnyAuthority("ROLE_USER")
 //                        .requestMatchers("/api/user/save/**").hasAnyAuthority("ROLE_ADMIN")
                         .anyRequest().permitAll()
                 )

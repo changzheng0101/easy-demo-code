@@ -1,6 +1,6 @@
 package com.weixiao.controller;
 
-import com.weixiao.HelloService;
+import com.weixiao.service.HelloService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

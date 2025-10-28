@@ -1,6 +1,6 @@
 package com.weixiao.controller;
 
-import com.weixiao.HelloService;
+import com.weixiao.service.HelloService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
