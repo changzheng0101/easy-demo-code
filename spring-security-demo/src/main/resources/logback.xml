@@ -1,0 +1,38 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %black(%d{ISO8601}) %highlight(%-5level) [%green(%-10.10t)] %-30.30C{1} : %msg%n%throwable
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- 文件输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/app.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>
+                %d{ISO8601} %-5level [%thread] %-30.30C{1} : %msg%n%throwable
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <!-- 滚动策略：按时间和大小 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 历史日志文件命名方式：%d表示日期，%i表示索引 -->
+            <fileNamePattern>./logs/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 保留30天日志，可根据需要调整 -->
+            <maxHistory>30</maxHistory>
+            <!-- 触发大小滚动 -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>50MB</maxFileSize> <!-- 每个日志文件最大50MB，可调整 -->
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

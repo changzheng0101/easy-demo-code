@@ -4,6 +4,7 @@ import com.example.jwtdemo.domain.AppUser;
 import com.example.jwtdemo.domain.Role;
 import com.example.jwtdemo.service.AppUserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,9 +18,9 @@ import java.util.ArrayList;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@Slf4j
 public class JwtDemoApplication {
     private final AppUserService appUserService;
-
 
     public static void main(String[] args) {
         SpringApplication.run(JwtDemoApplication.class, args);
@@ -54,6 +55,12 @@ public class JwtDemoApplication {
             appUserService.addRoleToAppUser("jim", "ROLE_USER");
             appUserService.addRoleToAppUser("android", "ROLE_USER");
             appUserService.addRoleToAppUser("android", "ROLE_ADMIN");
+
+            log.trace("A TRACE Message");
+            log.debug("A DEBUG Message");
+            log.info("An INFO Message");
+            log.warn("A WARN Message");
+            log.error("An ERROR Message");
         };
     }
 
