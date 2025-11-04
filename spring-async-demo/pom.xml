@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
     <groupId>com.weixiao</groupId>
-    <artifactId>spring-file-demo</artifactId>
+    <artifactId>spring-async-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -18,6 +18,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
