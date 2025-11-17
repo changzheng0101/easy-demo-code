@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:custns="http://www.weixiao.com/custns"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.weixiao.com/custns
+           http://www.weixiao.com/custns.xsd
+        "
+>
+
+    <custns:createservice serviceId="myservice-123" daoId="mydao-123" fields="field1,field2,field3"/>
+
+
+    <!--    这里是原始的方法去创建bean   -->
+<!--    <bean class="com.weixiao.MyService" id="myservice-123">-->
+<!--        <property name="defaultDao" ref="mydao-123"/>-->
+<!--        <property name="serviceName" value="myservice"/>-->
+<!--        <property name="daoRegistry">-->
+<!--            <map>-->
+<!--                <entry key="dao1" value-ref="mydao-123">-->
+<!--                </entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.weixiao.MyDAO" id="mydao-123">-->
+<!--        <property name="fields">-->
+<!--            <list>-->
+<!--                <value>field1</value>-->
+<!--                <value>field2</value>-->
+<!--                <value>field3</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+
+</beans>
