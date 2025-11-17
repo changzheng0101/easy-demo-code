@@ -22,24 +22,24 @@ public class CreateServiceNamespaceBeanDefinitionParser implements BeanDefinitio
     public BeanDefinition parse(Element element, ParserContext parserContext) {
         BeanDefinitionRegistry registry = parserContext.getRegistry();
         String serviceId = element.getAttribute("serviceId");
-        String daoId = element.getAttribute("daoId");
-        String fields = element.getAttribute("fields");
+        String defaultDaoId = element.getAttribute("daoId");
+        String defaultFields = element.getAttribute("fields");
 
         // Create and register the default DAO
-        BeanDefinitionBuilder daoBuilder = BeanDefinitionBuilder.genericBeanDefinition(MyDAO.class);
-        daoBuilder.addPropertyValue("fields", Arrays.asList(fields.split(",")));
-        registry.registerBeanDefinition(daoId, daoBuilder.getBeanDefinition());
+        BeanDefinitionBuilder defaultDaoBuilder = BeanDefinitionBuilder.genericBeanDefinition(MyDAO.class);
+        defaultDaoBuilder.addPropertyValue("fields", Arrays.asList(defaultFields.split(",")));
+        registry.registerBeanDefinition(defaultDaoId, defaultDaoBuilder.getBeanDefinition());
 
         // Create the service builder
         BeanDefinitionBuilder serviceBuilder = BeanDefinitionBuilder.genericBeanDefinition(MyService.class);
         serviceBuilder.addPropertyValue("serviceName", serviceId);
-        serviceBuilder.addPropertyReference("defaultDao", daoId);
+        serviceBuilder.addPropertyReference("defaultDao", defaultDaoId);
 
         // Create and populate the daoRegistry
         ManagedMap<Object, Object> daoRegistry = new ManagedMap<>();
         
         // Add the default DAO to the registry
-        daoRegistry.put("default", new RuntimeBeanReference(daoId));
+        daoRegistry.put("default", new RuntimeBeanReference(defaultDaoId));
         
         // Process nested <dao> elements
         NodeList daoNodes = element.getChildNodes();
@@ -48,9 +48,17 @@ public class CreateServiceNamespaceBeanDefinitionParser implements BeanDefinitio
             if (node.getNodeType() == Node.ELEMENT_NODE && "dao".equals(node.getLocalName())) {
                 Element daoElement = (Element) node;
                 String key = daoElement.getAttribute("key");
-                String ref = daoElement.getAttribute("ref");
-                if (key != null && !key.isEmpty() && ref != null && !ref.isEmpty()) {
-                    daoRegistry.put(key, new RuntimeBeanReference(ref));
+                String fields = daoElement.getAttribute("fields");
+                
+                if (!key.isEmpty() && !fields.isEmpty()) {
+                    // Create a new DAO for each dao element
+                    String daoBeanId = serviceId + "_" + key + "Dao";
+                    BeanDefinitionBuilder daoBuilder = BeanDefinitionBuilder.genericBeanDefinition(MyDAO.class);
+                    daoBuilder.addPropertyValue("fields", Arrays.asList(fields.split(",")));
+                    registry.registerBeanDefinition(daoBeanId, daoBuilder.getBeanDefinition());
+                    
+                    // Add to registry with the specified key
+                    daoRegistry.put(key, new RuntimeBeanReference(daoBeanId));
                 }
             }
         }

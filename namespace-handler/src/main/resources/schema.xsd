@@ -17,7 +17,7 @@
 
     <xs:complexType name="daoMapEntryType">
         <xs:attribute name="key" type="xs:string" use="required"/>
-        <xs:attribute name="ref" type="xs:string" use="required"/>
+        <xs:attribute name="fields" type="xs:string" use="required"/>
     </xs:complexType>
 
 </xs:schema>

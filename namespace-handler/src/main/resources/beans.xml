@@ -13,25 +13,9 @@
     <custns:createservice serviceId="myservice-123" daoId="mydao-123" fields="field1,field2,field3"/>
 
     <custns:createservice serviceId="myService" daoId="myDao" fields="field1,field2">
-        <custns:dao key="dao1" ref="myDao1"/>
-        <custns:dao key="dao2" ref="myDao2"/>
+        <custns:dao key="dao1" fields="field1"/>
+        <custns:dao key="dao2" fields="field2,field3"/>
     </custns:createservice>
-
-    <bean class="com.weixiao.MyDAO" id="myDao1">
-        <property name="fields">
-            <list>
-                <value>field1</value>
-            </list>
-        </property>
-    </bean>
-
-    <bean class="com.weixiao.MyDAO" id="myDao2">
-        <property name="fields">
-            <list>
-                <value>field2</value>
-            </list>
-        </property>
-    </bean>
 
     <!--    这里是原始的方法去创建bean   -->
     <!--    <bean class="com.weixiao.MyService" id="myservice-123">-->
