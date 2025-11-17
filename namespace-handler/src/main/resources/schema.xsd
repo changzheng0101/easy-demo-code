@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-           targetNamespace="http://www.weixiao.com/custns">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:custns="http://www.weixiao.com/custns"
+           targetNamespace="http://www.weixiao.com/custns"
+           elementFormDefault="qualified">
+
     <xs:element name="createservice">
         <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dao" type="custns:daoMapEntryType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
             <xs:attribute name="serviceId" use="required" type="xs:string"/>
             <xs:attribute name="daoId" use="required" type="xs:string"/>
             <xs:attribute name="fields" use="required" type="xs:string"/>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="daoMapEntryType">
+        <xs:attribute name="key" type="xs:string" use="required"/>
+        <xs:attribute name="ref" type="xs:string" use="required"/>
+    </xs:complexType>
+
 </xs:schema>
