@@ -41,7 +41,7 @@ public class WebFluxApplication implements CommandLineRunner {
         eventStream.subscribe(
                 content -> log.info("Time: {} - event: name[{}], id [{}], content[{}] ",
                         LocalTime.now(), content.event(), content.id(), content.data()),
-                error -> log.error("Error receiving SSE: {}", error),
+                error -> log.error("Error receiving SSE", error),
                 () -> log.info("Completed!!!"));
     }
 
