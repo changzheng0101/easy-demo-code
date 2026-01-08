@@ -6,6 +6,8 @@ import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
+ * 继承AbstractFactoryBean，通过getObject获取真正的对象
+ *
  * @author changzheng
  * @date 2025年10月28日 10:59
  */

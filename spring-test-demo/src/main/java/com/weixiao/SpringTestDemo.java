@@ -8,6 +8,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.client.JdkClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author changzheng
@@ -20,6 +22,9 @@ public class SpringTestDemo implements ApplicationRunner {
     @Autowired
     SingleToolFactory singleToolFactory;
 
+    @Autowired
+    RestTemplate restTemplate;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringTestDemo.class);
     }
@@ -27,5 +32,7 @@ public class SpringTestDemo implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println(singleToolFactory.getObject());
+
+        System.out.println(restTemplate);
     }
 }
