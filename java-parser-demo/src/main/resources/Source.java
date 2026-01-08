@@ -9,7 +9,8 @@ public class Test {
     private int a = 1;
 
     /**
-     * 大家啊来得及阿里
+     * demo log
+     *
      * @param args
      */
     public static void main(String[] args) {

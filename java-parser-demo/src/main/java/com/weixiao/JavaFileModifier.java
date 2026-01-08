@@ -10,7 +10,6 @@ import com.github.javaparser.ast.type.PrimitiveType;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -52,7 +51,7 @@ public class JavaFileModifier {
 
             // 6. 将修改后的 AST 树写入新文件
             // cu.toString() 会自动根据 AST 结构生成格式化后的代码字符串
-            Files.write(Paths.get(outputPath), cu.toString().getBytes(StandardCharsets.UTF_8));
+            Files.writeString(Paths.get(outputPath), cu.toString());
 
             System.out.println("修改成功！新文件已生成至: " + outputPath);
         } catch (IOException e) {
