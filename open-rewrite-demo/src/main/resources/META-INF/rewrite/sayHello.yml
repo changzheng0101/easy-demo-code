@@ -1,0 +1,7 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: addHelloToFile
+description: Add `hello` method to class `com.weixiao.FooBar`.
+recipeList:
+  - com.weixiao.SayHelloRecipe:
+      fullyQualifiedClassName: com.weixiao.FooBar
