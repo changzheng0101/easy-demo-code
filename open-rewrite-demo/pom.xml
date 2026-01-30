@@ -134,7 +134,7 @@
                 <version>6.28.0</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>addHelloToFile</recipe>
+                        <recipe>jarDependencyAnalyze</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>

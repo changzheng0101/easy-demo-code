@@ -1,0 +1,6 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: jarDependencyAnalyze
+description: analyze dependency for a jar file
+recipeList:
+  - com.weixiao.JarDependencyAnalyze
