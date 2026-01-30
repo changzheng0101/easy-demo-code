@@ -1,0 +1,6 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: OfflineAndNotifyRecipe
+description: 在 A 类执行修改，并在 B 类同步添加代码。
+recipeList:
+  - com.weixiao.OfflineAndNotifyRecipe

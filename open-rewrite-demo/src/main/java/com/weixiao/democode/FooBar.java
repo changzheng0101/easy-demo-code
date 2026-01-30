@@ -1,4 +1,4 @@
-package com.weixiao;
+package com.weixiao.democode;
 
 /**
  * @author changzheng

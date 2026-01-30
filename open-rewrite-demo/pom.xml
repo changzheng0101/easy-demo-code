@@ -134,7 +134,7 @@
                 <version>6.28.0</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>jarDependencyAnalyze</recipe>
+                        <recipe>OfflineAndNotifyRecipe</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>

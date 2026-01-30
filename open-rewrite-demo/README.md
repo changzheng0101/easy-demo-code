@@ -2,7 +2,7 @@
 
 > 可以通过抽象语法树来完成项目的完全覆盖
 
-## 设计准则
+## OpenRewrite设计准则
 
 一个好的 Recipe 运行一次和运行十次的结果应该是一样的
 
@@ -12,9 +12,14 @@ Visitor： 通过Visitor可以对每个节点进行更改
 Cursor： 可以访问父节点
 ExecutionContext： 执行上下文，可以跨多个Recipe共享数据
 
+## 项目结构
+
+democode下存放了非Recipe的实践代码，Recipe将对这里面的代码修改。
+
 ## 常用命令
 
 使用bash直接运行Recipe
+
 ```bash
 mvn org.openrewrite.maven:rewrite-maven-plugin:6.28.0:run \
   -Drewrite.recipeArtifacts=com.weixiao:open-rewrite-demo:1.0-SNAPSHOT \

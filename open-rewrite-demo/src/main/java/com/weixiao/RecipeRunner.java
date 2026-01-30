@@ -36,7 +36,7 @@ public class RecipeRunner {
                 .collect(Collectors.toList());
 
         // 4. 实例化你的 Recipe
-        Recipe recipe = new SayHelloRecipe("com.weixiao.FooBar");
+        Recipe recipe = new SayHelloRecipe("com.weixiao.democode.FooBar");
 
         // 5. 运行 Recipe
         RecipeRun run = recipe.run(new InMemoryLargeSourceSet(cus), ctx);
