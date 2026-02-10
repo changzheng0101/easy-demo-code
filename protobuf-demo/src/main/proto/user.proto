@@ -1,0 +1,15 @@
+// 使用 proto3 语法
+syntax = "proto3";
+
+// 生成的 Java 代码相关的配置
+option java_package = "com.weixiao.protobuf.model";
+option java_outer_classname = "UserProto";
+// 设为 true 则每个 Message 生成独立的文件
+option java_multiple_files = true;
+
+// 定义数据结构
+message UserRequest {
+  int32 id = 1;       // 字段编号 1
+  string name = 2;     // 字段编号 2
+  string email = 3;    // 字段编号 3
+}
