@@ -1,6 +1,5 @@
-package com.weixao;
+package com.weixiao;
 
-import com.weixiao.User;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
